@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { User, Resultado, ResultadoDetalle } from './../../shared/models/user.interface';
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
@@ -12,7 +13,7 @@ import { catchError, map } from "rxjs/operators";
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router: Router) { }
 
   private loggedIn = new BehaviorSubject<boolean>(false);
 
@@ -41,6 +42,7 @@ export class AuthService {
   logout():void{
     localStorage.removeItem('desc_rol');
     this.loggedIn.next(false);
+    this.router.navigate(['/login']);
   }
 
   private readRole():void{}

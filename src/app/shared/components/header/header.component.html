@@ -1,19 +1,20 @@
-{{ isAdmin }}
-
 <mat-toolbar color="primary">
     <ng-container *ngIf="!isAdmin; else viewAdmin">
         
     <span>APP IES</span>
     <span class="spacer"></span>
     <div>
-        <a mat-button [routerLink] = "'/login'">Login</a>
-        <a mat-button onclick="onLogout()">Logout</a>
-        <a mat-button [routerLink] = "'/login'">compoenteUno</a>
+        <a *ngIf="!isLogged; else viewLogout" 
+        mat-button routerLink = "/login">Login</a>
+
+        <a mat-button routerLink = '/dashboard'>Dashboard</a>
     </div>
     </ng-container>
-    <button (click)= " isAdmin= !isAdmin ">change</button>
 </mat-toolbar>
 
+<ng-template #viewLogout>
+    <a mat-button (click)="onLogout()">Logout</a>
+</ng-template>
 
 <ng-template #viewAdmin>
     <button mat-icon-button (click) = "onToggleSidenav()">

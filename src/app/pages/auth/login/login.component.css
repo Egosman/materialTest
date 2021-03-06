@@ -6,7 +6,7 @@ mat-card {
     max-width: 300px;
     margin: 2rem auto;
     text-align: center;
-    height: 350px;   
+    height: 300px;   
 }
 
 .full-width-input, button {
@@ -14,5 +14,5 @@ mat-card {
 }
 
 .separator {
-    margin-bottom: 2 rem;
+    margin-bottom: 5rem;
 }
