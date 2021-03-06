@@ -1,0 +1,17 @@
+.footer{
+    background: #151414;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+.copyright-area{
+  background: #202020;
+  padding: 1em;
+}
+.copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #878787;
+}
+
