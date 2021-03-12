@@ -1,1 +1,44 @@
-<h1>Welcome</h1>
+<h1 class="title">Llenar el siguiente formulario</h1>
+<br>
+<div class="container">
+    <form  class="dashForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Seleccionar fecha de reservacion</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" required [formControl]="dateFormControl">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="dateFormControl.hasError('required')">
+                La fecha es <strong>requerida</strong>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" required [formControl]="nameFormControl">
+            <mat-error *ngIf="nameFormControl.hasError('required')">
+                El nombre es <strong>obligatorio</strong>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Correo Electronico</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" placeholder="Ejemplo. nombre@example.com">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Introduce un correo valido
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+                Correo es <strong>obligatorio</strong>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>País</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let country of countries" [value]="countries">{{ country }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary">Enviar</button>
+    </form>
+    
+</div>

@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarModule } from './shared/components/sidebar/sidebar.module';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SidebarModule } from './shared/components/sidebar/sidebar.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
-    SidebarModule
+    SidebarModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

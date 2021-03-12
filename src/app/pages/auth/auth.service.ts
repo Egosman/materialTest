@@ -30,7 +30,7 @@ export class AuthService {
 
     return this.http
       .post<Resultado>(`${environment.API_URL}`, authData, options)
-    .pipe(
+      .pipe(
       map( (res:Resultado) => { 
         this.saveRole(res.resultado.desc_rol);
         this.loggedIn.next(true);

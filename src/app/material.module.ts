@@ -8,6 +8,10 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
 import { HttpClientModule } from '@angular/common/http';
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 
 const myModule = [
@@ -19,7 +23,11 @@ const myModule = [
     MatIconModule,
     MatInputModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatSelectModule
 ];
 
 
