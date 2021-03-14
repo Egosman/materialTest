@@ -37,8 +37,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onLogout():void{
-    this.showToasterSuccess();
-    //this.authSvc.logout;
+    this.authSvc.logout;
   }
 
 }

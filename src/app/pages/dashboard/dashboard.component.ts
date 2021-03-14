@@ -28,12 +28,15 @@ export class DashboardComponent implements OnInit {
   dateFormControl = new FormControl('',Validators.required);
   nameFormControl = new FormControl('', Validators.required);
 
+  dashboardForm = new FormGroup({
+    name: this.nameFormControl,
+    email: this.emailFormControl,
+    date: this.dateFormControl
+  });
   
 
 
-  constructor(private dashSer: DashboardService, private fb: FormBuilder) { 
-    
-  }
+  constructor(private dashSer: DashboardService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.showCountry();
@@ -65,7 +68,14 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-
+  submit() {
+    if (this.dashboardForm.valid) {
+      console.log(this.dashboardForm.value)
+    }
+    else {
+      alert("FILL ALL FIELDS")
+    }
+  }
   
 }
 

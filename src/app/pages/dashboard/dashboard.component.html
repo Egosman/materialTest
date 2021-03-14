@@ -1,10 +1,10 @@
 <h1 class="title">Llenar el siguiente formulario</h1>
 <br>
 <div class="container">
-    <form  class="dashForm">
+    <form  class="dashForm" [formGroup]="dashboardForm" (ngSubmit)="submit()">
         <mat-form-field appearance="fill">
             <mat-label>Seleccionar fecha de reservacion</mat-label>
-            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" required [formControl]="dateFormControl">
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" required [formControl]="dateFormControl" class="form-control" name="date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="dateFormControl.hasError('required')">
@@ -14,7 +14,7 @@
         <br>
         <mat-form-field appearance="fill">
             <mat-label>Nombre</mat-label>
-            <input matInput type="text" required [formControl]="nameFormControl">
+            <input matInput type="text" required [formControl]="nameFormControl" class="form-control" name="name">
             <mat-error *ngIf="nameFormControl.hasError('required')">
                 El nombre es <strong>obligatorio</strong>
             </mat-error>
@@ -22,7 +22,7 @@
         <br>
         <mat-form-field appearance="fill">
             <mat-label>Correo Electronico</mat-label>
-            <input type="email" matInput [formControl]="emailFormControl" placeholder="Ejemplo. nombre@example.com">
+            <input type="email" matInput [formControl]="emailFormControl" placeholder="Ejemplo. nombre@example.com" class="form-control" name="email">
             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                 Introduce un correo valido
             </mat-error>
@@ -38,7 +38,7 @@
             </mat-select>
         </mat-form-field>
         <br>
-        <button mat-raised-button color="primary">Enviar</button>
+        <button mat-raised-button color="primary" [disabled]="!dashboardForm.valid">Enviar</button>
     </form>
     
 </div>
